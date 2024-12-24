@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBek.uz</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+        .content div {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CodeBek</h1>
+        <h1>CodeBek</h1>
+        <nav>
+            <a href="#">Bosh Sahifa</a>
+            <a href="https://t.me/Davlatbek_Developer" target="_blank">Xizmatlar</a>
+            <a href="https://davlatbekdev-portfolio.vercel.app/" target="_blank">Portfolio</a>
+            <a href="https://davlatbekdev-portfolio.vercel.app/pages/kon.html">Aloqa</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div>
+            <h2>Biz haqimizda</h2>
+            <p>Biz sizga eng yaxshi xizmatlarni taqdim etamiz! <br> buning uchun esa bizning telgram kanalimizga ulaning! <br> <a href="https://t.me/No_code_bepul_darslar" target="_blank">No-code darslari</a> <br> <a href="https://t.me/Davlatbek_Developer" target="_blank">Davlatbek Developer</a>
+</p>
+        </div>
+        <div>
+            <h2>Xizmatlar</h2>
+            <p>Biz sizga dasturlashni O'rgatamiz, evaziga esa sizdan faqatgina bizni darslarimizni ko'rsangiz bo'ldi.</p>
+        </div>
+        <div>
+            <h2>Aloqa</h2>
+            <p>Biz bilan bog'lanish uchun bizning aloqa formasini to'ldiring.</p>
+        </div>
+    </div>
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowfall Animation</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-image: linear-gradient(blue, rgb(110, 110, 203));
+        }
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: #fff;
+            user-select: none;
+            z-index: 9999;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px) translateX(0);
+            }
+            50% {
+                transform: translateY(50vh) translateX(10px);
+            }
+            100% {
+                transform: translateY(calc(100vh + 10px)) translateX(-10px);
+            }
+        }
+        .snowfall-btn {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .snowfall-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="snowfall-btn" onclick="toggleSnowfall()">Start Snowfall</button>
+
+    <script>
+        const snowflakes = 300;
+        const snowflakeShapes = ['❄️', '✽', '✻', '❅', '❆'];
+        let snowfallActive = false;
+
+        function toggleSnowfall() {
+            if (!snowfallActive) {
+                // Start snowfall
+                for (let i = 0; i < snowflakes; i++) {
+                    let snowflake = document.createElement('div');
+                    snowflake.innerHTML = snowflakeShapes[Math.floor(Math.random() * snowflakeShapes.length)];
+                    snowflake.className = 'snowflake';
+                    snowflake.style.left = Math.random() * 100 + 'vw';
+                    snowflake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    snowflake.style.opacity = Math.random();
+                    snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                    snowflake.style.animationDelay = Math.random() * 5 + 's';
+                    document.body.appendChild(snowflake);
+
+                    snowflake.addEventListener('animationiteration', () => {
+                        snowflake.innerHTML = snowflakeShapes[Math.floor(Math.random() * snowflakeShapes.length)];
+                        snowflake.style.left = Math.random() * 100 + 'vw';
+                        snowflake.style.opacity = Math.random();
+                        snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                    });
+                }
+                document.querySelector(".snowfall-btn").innerText = "Stop Snowfall";
+                snowfallActive = true;
+            } else {
+                // Stop snowfall
+                let snowflakesElements = document.querySelectorAll('.snowflake');
+                snowflakesElements.forEach(snowflake => {
+                    snowflake.remove();
+                });
+                document.querySelector(".snowfall-btn").innerText = "Start Snowfall";
+                snowfallActive = false;
+            }
+        }
+    </script>
+</body>
+</html>
+
